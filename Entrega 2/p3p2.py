@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math as math
 
+rgb = lambda h: tuple(int(h[i:i+2], 16)/256. for i in (0, 2, 4))
+gris = rgb("7C7C7C")
+cafe = rgb("6C4E09")
+verde = rgb("00701A")
+
 G = nx.Graph()   #Graph asume bidireccionalidad en todos los arcos
 
 G.add_node(0, pos=[1.0, 2.0])
@@ -41,11 +46,11 @@ colores = []
 edgelist = []
 for ni, nf, data in G.edges(data=True):
 	if data["lim_vel"] == 120:
-		colores.append("gray")
+		colores.append(gris)
 	elif data["lim_vel"] == 60:
-		colores.append("green")
+		colores.append(verde)
 	elif data["lim_vel"] == 40:
-		colores.append("saddlebrown")
+		colores.append(cafe)
 	else:
 		colores.append("k")
 
@@ -121,7 +126,7 @@ for ni, nf in G.edges:
 		colores01.append("r")
 		width01.append(5)
 	else:
-		colores01.append("gray")
+		colores01.append(gris)
 		width01.append(1)
 	edgelist01.append((ni,nf))
 
@@ -133,7 +138,7 @@ for ni, nf in G.edges:
 		colores02.append("r")
 		width02.append(5)
 	else:
-		colores02.append("gray")
+		colores02.append(gris)
 		width02.append(1)
 	edgelist02.append((ni,nf))
 
@@ -145,7 +150,7 @@ for ni, nf in G.edges:
 		colores03.append("r")
 		width03.append(5)
 	else:
-		colores03.append("gray")
+		colores03.append(gris)
 		width03.append(1)
 	edgelist03.append((ni,nf))
 
@@ -161,6 +166,7 @@ nx.draw_networkx_nodes(G, pos=pos, ax=ax)
 nx.draw_networkx_labels(G, pos=pos)
 nx.draw_networkx_edges(G, pos, edgelist=edgelist01, edge_color=colores01, width=width01)
 
+fig2.suptitle(f"Tiempo de Viaje Ruta 01 = {np.round(tiempo_viaje_01, 2)} [hrs], lo que corresponde a {np.round(tiempo_viaje_01*60, 2)} [min]")
 ax.tick_params(left=True, bottom=True, labelleft=True, labelbottom=True)
 ax.set_ylabel('Y (km)')
 ax.set_xlabel('X (km)')
@@ -180,6 +186,7 @@ nx.draw_networkx_nodes(G, pos=pos, ax=ax)
 nx.draw_networkx_labels(G, pos=pos)
 nx.draw_networkx_edges(G, pos, edgelist=edgelist02, edge_color=colores02, width=width02)
 
+fig3.suptitle(f"Tiempo de Viaje Ruta 02 = {np.round(tiempo_viaje_02, 2)} [hrs], lo que corresponde a {np.round(tiempo_viaje_02*60, 2)} [min]")
 ax.tick_params(left=True, bottom=True, labelleft=True, labelbottom=True)
 ax.set_ylabel('Y (km)')
 ax.set_xlabel('X (km)')
@@ -199,6 +206,7 @@ nx.draw_networkx_nodes(G, pos=pos, ax=ax)
 nx.draw_networkx_labels(G, pos=pos)
 nx.draw_networkx_edges(G, pos, edgelist=edgelist03, edge_color=colores03, width=width03)
 
+fig4.suptitle(f"Tiempo de Viaje Ruta 03 = {np.round(tiempo_viaje_03, 2)} [hrs], lo que corresponde a {np.round(tiempo_viaje_03*60, 2)} [min]")
 ax.tick_params(left=True, bottom=True, labelleft=True, labelbottom=True)
 ax.set_ylabel('Y (km)')
 ax.set_xlabel('X (km)')
