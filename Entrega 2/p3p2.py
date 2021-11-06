@@ -8,6 +8,13 @@ gris = rgb("7C7C7C")
 cafe = rgb("6C4E09")
 verde = rgb("00701A")
 
+def distancia(nodo1, nodo2, grafo):
+	 poss = nx.get_node_attributes(grafo, "pos")
+	 dist1 = poss[nodo1]
+	 dist2 = poss[nodo2]
+
+	 return math.dist(dist1, dist2)
+
 G = nx.Graph()   #Graph asume bidireccionalidad en todos los arcos
 
 G.add_node(0, pos=[1.0, 2.0])
@@ -21,22 +28,22 @@ G.add_node(7, pos=[5.0, 8.0])
 G.add_node(8, pos=[9.0, 7.0])
 G.add_node(9, pos=[8.0, 10.0])
 
-G.add_edge(0, 1, lim_vel = 40)
-G.add_edge(0, 2, lim_vel = 120)
-G.add_edge(0, 6, lim_vel = 120)
-G.add_edge(1, 2, lim_vel = 40)
-G.add_edge(1, 3, lim_vel = 60)
-G.add_edge(1, 7, lim_vel = 40)
-G.add_edge(2, 5, lim_vel = 40)
-G.add_edge(3, 4, lim_vel = 60)
-G.add_edge(3, 6, lim_vel = 40)
-G.add_edge(3, 7, lim_vel = 60)
-G.add_edge(3, 8, lim_vel = 40)
-G.add_edge(4, 6, lim_vel = 120)
-G.add_edge(4, 8, lim_vel = 120)
-G.add_edge(5, 7, lim_vel = 120)
-G.add_edge(7, 9, lim_vel = 60)
-G.add_edge(8, 9, lim_vel = 60)
+G.add_edge(0, 1, lim_vel = 40, dist = distancia(0, 1, G), tiempo = distancia(0, 1, G)/40)
+G.add_edge(0, 2, lim_vel = 120, dist = distancia(0, 2, G), tiempo = distancia(0, 2, G)/120)
+G.add_edge(0, 6, lim_vel = 120, dist = distancia(0, 6, G), tiempo = distancia(0, 6, G)/120)
+G.add_edge(1, 2, lim_vel = 40, dist = distancia(1, 2, G), tiempo = distancia(1, 2, G)/40)
+G.add_edge(1, 3, lim_vel = 60, dist = distancia(1, 3, G), tiempo = distancia(1, 3, G)/60)
+G.add_edge(1, 7, lim_vel = 40, dist = distancia(1, 7, G), tiempo = distancia(1, 7, G)/40)
+G.add_edge(2, 5, lim_vel = 40, dist = distancia(2, 5, G), tiempo = distancia(2, 5, G)/40)
+G.add_edge(3, 4, lim_vel = 60, dist = distancia(3, 4, G), tiempo = distancia(3, 4, G)/60)
+G.add_edge(3, 6, lim_vel = 40, dist = distancia(3, 6, G), tiempo = distancia(3, 6, G)/40)
+G.add_edge(3, 7, lim_vel = 60, dist = distancia(3, 7, G), tiempo = distancia(3, 7, G)/60)
+G.add_edge(3, 8, lim_vel = 40, dist = distancia(3, 8, G), tiempo = distancia(3, 8, G)/40)
+G.add_edge(4, 6, lim_vel = 120, dist = distancia(4, 6, G), tiempo = distancia(4, 6, G)/120)
+G.add_edge(4, 8, lim_vel = 120, dist = distancia(4, 8, G), tiempo = distancia(4, 8, G)/120)
+G.add_edge(5, 7, lim_vel = 120, dist = distancia(5, 7, G), tiempo = distancia(5, 7, G)/120)
+G.add_edge(7, 9, lim_vel = 60, dist = distancia(7, 9, G), tiempo = distancia(7, 9, G)/60)
+G.add_edge(8, 9, lim_vel = 60, dist = distancia(8, 9, G), tiempo = distancia(8, 9, G)/60)
 
 
 pos = nx.get_node_attributes(G, "pos")
@@ -76,18 +83,11 @@ plt.show()
 
 
 
-#Ahora definimos rutas con su tiempo de viaje
+#Ahora definimos rutas
 
-def distancia(nodo1, nodo2):
-	 poss = nx.get_node_attributes(G, "pos")
-	 dist1 = poss[nodo1]
-	 dist2 = poss[nodo2]
-
-	 return math.dist(dist1, dist2)
-
-ruta01 = nx.dijkstra_path(G, source=0, target=9, weight = "lim_vel")
-ruta02 = nx.dijkstra_path(G, source=4, target=5, weight = "lim_vel")
-ruta03 = nx.dijkstra_path(G, source=0, target=4, weight = "lim_vel")
+ruta01 = nx.dijkstra_path(G, source=0, target=9, weight = "tiempo")
+ruta02 = nx.dijkstra_path(G, source=4, target=5, weight = "tiempo")
+ruta03 = nx.dijkstra_path(G, source=0, target=4, weight = "tiempo")
 
 tiempo_viaje_01 = 0.
 tiempo_viaje_02 = 0.
@@ -99,17 +99,17 @@ for j in range(len(Nparadas)):
 		if j + 1 == 1:
 			parada_i = ruta01[i]
 			parada_f = ruta01[i+1]
-			tiempo_viaje_tramo_i = (distancia(parada_i, parada_f)*1)/G.edges[parada_i, parada_f]["lim_vel"]
+			tiempo_viaje_tramo_i = G.edges[parada_i, parada_f]["tiempo"]
 			tiempo_viaje_01 += tiempo_viaje_tramo_i
 		elif j + 1 == 2:
 			parada_i = ruta02[i]
 			parada_f = ruta02[i+1]
-			tiempo_viaje_tramo_i = (distancia(parada_i, parada_f)*1)/G.edges[parada_i, parada_f]["lim_vel"]
+			tiempo_viaje_tramo_i = G.edges[parada_i, parada_f]["tiempo"]
 			tiempo_viaje_02 += tiempo_viaje_tramo_i
 		elif j + 1 == 3:
 			parada_i = ruta03[i]
 			parada_f = ruta03[i+1]
-			tiempo_viaje_tramo_i = (distancia(parada_i, parada_f)*1)/G.edges[parada_i, parada_f]["lim_vel"]
+			tiempo_viaje_tramo_i = G.edges[parada_i, parada_f]["tiempo"]
 			tiempo_viaje_03 += tiempo_viaje_tramo_i
 
 # print(f"Tiempo de Viaje ruta 01 = {np.round(tiempo_viaje_01, 2)} [hrs], lo que corresponde a {np.round(tiempo_viaje_01*60, 2)} [min]")
