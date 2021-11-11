@@ -8,7 +8,7 @@ Proyecto 3 MCOC
 * Carmen Benavente Vicuña
 * Roberto Alfonso Vergara Cubillos
 
-## P2E2
+## Entrega 2
 
 | Figura | Imagen |
 | ------------- | ------------- |
@@ -17,7 +17,7 @@ Proyecto 3 MCOC
 | fig3 (4 &rightarrow; 5) | ![fig3](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%202/fig3.png) |
 | fig4 (0 &rightarrow; 4) | ![fig4](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%202/fig4.png) |  
 
-## P2E3
+## Entrega 3
 | INTEGRANTE | MAPA |
 | ------------- | ------------- |
 | Carmen Benavente Vicuña | ![MapaCarmen]() |
