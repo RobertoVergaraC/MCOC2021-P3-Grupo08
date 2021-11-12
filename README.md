@@ -21,5 +21,5 @@ Proyecto 3 MCOC
 | INTEGRANTE | MAPA |
 | ------------- | ------------- |
 | Carmen Benavente Vicuña | ![p3e3_grupo08_benavente](https://user-images.githubusercontent.com/62263342/141379206-a2083e09-35aa-4f76-9882-9393e52d5b22.png) |
-| Roberto Alfonso Vergara Cubillos | ![MapaRoberto](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%203/p3e2_grupo08_vergara.png) |  
+| Roberto Alfonso Vergara Cubillos | ![MapaRoberto](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%203/p3e3_grupo08_vergara.png) |  
 
