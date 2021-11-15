@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
+from tabulate import tabulate
 
 r = lambda f: 10 + f/120
 s = lambda f: 14 + 3*f/240 
@@ -101,14 +102,22 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 
 plt.show()
 
+#COLUMNAS A GRAFICAR
+# 1) Origen-Destino
+# 2) RUTAS CON = COSTO
+# 3) VALOR AVERAGE COSTOS
+# lista = [[1,2,3],[1,2,3]...[1,2,3]]
+TABLA = []
 
 #Chequear costos
 print(f"Costos\n")
 for key in OD:
 	origen = key[0]
 	destino = key[1]
+	tabla = []
+	tabla.append(f"{origen}{destino}")
 
-	print(f"COSTOS VIAJE RUTAS MÁS CORTAS {origen}{destino}")
+	#print(f"COSTOS VIAJE RUTAS MÁS CORTAS {origen}{destino}")
 	paths = nx.all_simple_paths(G, origen, destino)
 	path = nx.dijkstra_path(G, origen, destino, weight="costo")
 
@@ -119,6 +128,9 @@ for key in OD:
 		d = path[j_parada + 1]
 		costo_min += G.edges[o, d]["costo"]
 
+	costos_seleccionados = []
+	paths_seleccionados = []
+	errores_seleccionados = []
 	for i in paths:
 		costo = 0
 		Nparadas = len(i)
@@ -129,9 +141,22 @@ for key in OD:
 			costo += G.edges[o, d]["costo"]
 
 		if int(costo_min*10) == int(costo*10):
+			costos_seleccionados.append(costo)
+			paths_seleccionados.append(i)
 			if costo_min != costo:
 				error = (abs(costo-costo_min)/costo_min)*100
-				print(f"RUTAS: {i} con un costo de {costo} con un error de {error}%.")
+				#print(f"RUTAS: {i} con un costo de {costo} con un error de {error}%.")
+				errores_seleccionados.append(error)
 			else:
-				print(f"RUTAS: {i} con un costo de {costo}")
-	print()
+				#print(f"RUTAS: {i} con un costo de {costo}")
+				errores_seleccionados.append(0)
+	tabla.append(paths_seleccionados)
+	tabla.append(np.average(costos_seleccionados))
+	if len(errores_seleccionados)<=1:
+		tabla.append(f"{errores_seleccionados[0]}%")
+	else:
+		tabla.append(f"{sum(errores_seleccionados)/(len(errores_seleccionados)-1)}%")
+	TABLA.append(tabla)
+	#print()
+
+print(tabulate(TABLA, headers=['ORIGEN - DESTINO', 'PATHS SELECCIONADOS', 'COSTOS', 'ERROR COSTOS'], tablefmt='grid'))
