@@ -70,7 +70,7 @@ labels = nx.get_edge_attributes(G, "label")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 plt.show()
 ```
-![GrafoEntrega4]()
+![GrafoEntrega4](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Grafo%20Entrega%204.png)
 
 #### Creamos Matriz OD y realizamos algoritmo de Wardrop
 ```python
@@ -141,7 +141,7 @@ plt.show()
 
 | Flujo | Costos |
 | ------------- | ------------- |
-| ![flujo]() | ![costo]() |
+| ![flujo](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Flujo%20Entrega%204.png) | ![costos](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Costos%20Entrega%204.png) |
 
 ### Validación equilibrio de Wardrop
 ```python
@@ -195,7 +195,7 @@ for key in OD:
 print(tabulate(TABLA, headers=['ORIGEN - DESTINO', 'PATHS SELECCIONADOS', 'COSTOS', 'ERROR COSTOS'], tablefmt='grid'))
 ```
 
-![Validacion_Wardrop]()  
+![Validacion_Wardrop](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Validaci%C3%B3n%20Wardrop%20Entrega%204.png)  
 
 EXPLICACIÓN VALIDACIÓN
 
