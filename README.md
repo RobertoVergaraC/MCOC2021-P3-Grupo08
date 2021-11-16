@@ -139,7 +139,7 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 plt.show()
 ```
 
-| Flujo | Costos |
+| Flujos | Costos |
 | ------------- | ------------- |
 | ![flujo](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Flujo%20Entrega%204.png) | ![costos](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Costos%20Entrega%204.png) |
 
