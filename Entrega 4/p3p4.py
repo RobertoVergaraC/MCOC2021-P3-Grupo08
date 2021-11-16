@@ -58,9 +58,8 @@ OD = {
 OD_target = OD.copy()
 
 incrementos = [0.05]*18 + [0.01]*9 + [0.001]*9 + [0.0001]*9 + [0.00001]*9 + [0.000001]*10
-#print(sum(incrementos))
+#print(sum(incrementos)==1)
 for incremento in incrementos:
-	#se_asigno_demanda = False
 
 	for key in OD:
 
@@ -75,7 +74,6 @@ for incremento in incrementos:
 
 			#Incrementar flujo en la ruta mínima
 			Nparadas = len(path)
-			p_total = 0
 			for i_parada in range(Nparadas-1):
 				o = path[i_parada]
 				d = path[i_parada + 1]
