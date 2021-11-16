@@ -113,7 +113,20 @@ for incremento in incrementos:
 			OD[key] -= incremento*demanda_objetivo
 ```  
 
-EXPLICACIÓN ALGORITMOOOOO
+Para realizar el algoritmo, en primer lugar, es importante definir un diccionario con una clave de tiplo tupla en donde el primer elemento corresponde al origen, el segundo al destino y valor de esta clave, será la demanda. Luego, realizamos una copia de este diccionario, ya que el primer diccionario será al que se le irá quitando la demanda cada vez que se asigna y el segundo tendrá los valores de demanda objetivos.  
+
+Luego definimos la lista incrementos, la cual corresponde a porcentajes, los cuales multiplicados por la demanda objetivo, serán los valores que se incrementaran en los flujos y dismunuirán en el diccionario origen destino (hasta tener demandas todas iguales a 0).  
+
+A continuación se da inicio al algoritmo; 
+1) Recorremos incremento, ya que según esos valores es cuanto se incrementará en flujos. Lógicamente la suma de los valores de icremento serán iguales a 1 (quitamos el 100% de la demanda).
+2) Recorremos el diccionario en donde identificamos nuestro origen y destino, la demanda actual (la cual por cada vez que se recorre es menor) y la demanda objetivo (demanda total). Importante señalar que el algoritmo va agregando flujo en cada par OD uno a la vez, es decir, agrega flujo con el incremento para el par AC, luego para el par AD hasta terminar el diccionario y luego vuelve a AC para seguir agregando flujo según el segundo valor del incremento. De esta manera el resultado de Wardrop es mucho más efectivo, ya que va realizando todos los pares OD al "mismo tiempo".
+3) A continuación, definimos la condición de que si la demanda actual todavía es mayor a 0, entonces se calcula la ruta con menor costo (esta se calcula según el atributo "costo", el cual parte con un valor inicial considerando todos los flujos iguales a 0) y se procede a recorrer los arcos de esta para ir agregando el flujo (+=incremento * demanda) y modificando los costos según este último (al incrementar el flujo, el costo lo va haciendolo de manera paralela según su función definida por enunciado).
+4) Por último, todo el flujo agregado a los diferentes arcos de la ruta más próxima son retirados del diccionario de matriz origen destino.
+5) Se repite todo el proceso hasta que todas las demandas sean iguales a 0.  
+
+Al ir incrementando los flujos con relación a porcentajes de la demanda, la solución encontrada tiene valores más exactos, ya que según cuantos viajes haya de un origen a un destino, sus rutas posibles pasan a ser más relevantes, esto es lógico, porque tienen una mayor cantidad de flujo.  
+
+Por último, cabe agregar lo mencionado en el punto 2), ya que al ir agregando flujos recorriendo toda la matriz OD, encontramos un valor mucho más exacto que al terminar un par OD y luego seguir con el siguiente, pues de esta forma si se toman en cuentas las externalidades que surgen de otros viajes que pueden afectarse entre si.  
 
 #### Graficamos flujo y costo por arcos encontrados
 ```python
