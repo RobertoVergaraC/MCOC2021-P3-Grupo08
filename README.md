@@ -192,5 +192,4 @@ print(tabulate(TABLA, headers=['ORIGEN - DESTINO', 'PATHS SELECCIONADOS', 'COSTO
 
 ![Validacion_Wardrop](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/Validaci%C3%B3n%20Wardrop%20Entrega%204.png)  
 
-EXPLICACIÓN VALIDACIÓN
-
+Aquí se trabajo con la variable "tabla" la cual es donde se van incluyendo los valores respectivos a cada una de las rutas mínimas encontradas. En una primera instancia, se encontro la ruta mínima por medio de la función dijkstra_path, para luego calcular el costo de dicha ruta. Una vez encontrados estas varibables, se comenzó a comparar el costo de cada una de las rutas encontradas con una tolerancia de un decimal, es decir que se consideran que los costos son iguales si es que son iguales hasta el primer decimal. Todas las rutas que tengan el mismo costo de la ruta mínima encontrada originalmente, se consideraron como rutas mínimas y fueron presentadas en la tabla. Finalmente se guardan los valores de los costos y errores de cada una de estas rutas y se presentaron en la variable "Tabla" que es presentada en la imagen de arriba. Validando de esta manera el equilibrio de Wardrop, donde todas las rutas mínimas tienen el mismo costo. 
