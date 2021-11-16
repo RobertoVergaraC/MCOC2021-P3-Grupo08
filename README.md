@@ -143,7 +143,7 @@ plt.show()
 | ------------- | ------------- |
 | ![flujo]() | ![costo]() |
 
-#### Validación equilibrio de Wardrop
+### Validación equilibrio de Wardrop
 ```python
 TABLA = []
 
