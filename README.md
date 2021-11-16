@@ -103,7 +103,6 @@ for incremento in incrementos:
 
 			#Incrementar flujo en la ruta mínima
 			Nparadas = len(path)
-			p_total = 0
 			for i_parada in range(Nparadas-1):
 				o = path[i_parada]
 				d = path[i_parada + 1]
