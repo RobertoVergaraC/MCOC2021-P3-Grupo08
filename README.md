@@ -90,12 +90,8 @@ OD = {
 OD_target = OD.copy()
 
 incrementos = [0.05]*18 + [0.01]*9 + [0.001]*9 + [0.0001]*9 + [0.00001]*9 + [0.000001]*10
-#print(sum(incrementos))
 for incremento in incrementos:
-	#se_asigno_demanda = False
-
 	for key in OD:
-
 		origen = key[0]
 		destino = key[1]
 		demanda_actual = OD[key]
