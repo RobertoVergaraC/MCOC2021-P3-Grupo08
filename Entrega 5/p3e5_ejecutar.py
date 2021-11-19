@@ -7,6 +7,10 @@ import csv
 
 def weightfun(n1, n2, arco):
 	arco = arco[0]
+	if "name" in arco:
+		nombre=str(arco["name"])
+	else:
+		nombre="SIN NOMBRE"
 	f = 0
 	if "lanes" in arco:
 		if str(type(arco["lanes"])) == "<class 'list'>":
@@ -23,6 +27,10 @@ def weightfun(n1, n2, arco):
 		L = float(arco["length"])
 	else:
 		L = 100
+	if nombre.find("Kennedy") >= 0:
+		L*=1000
+	if nombre.find("Autopista Central") >= 0:
+		L*=1000
 	if "highway" in arco:
 		street_type = arco["highway"]
 	else:
@@ -131,7 +139,7 @@ for key in Matriz_OD:
 				else:
 					nombre = "CALLE SIN NOMBRE"
 
-				if nombre.find("Américo Vespucio Oriente") >=0:
+				if nombre.find("Autopista Vespucio Oriente") >=0:
 					zonas_seleccionadas_id.append(zona_origen)
 					zonas_seleccionadas_id.append(zona_destino)
 	except:
@@ -153,7 +161,7 @@ gdf_edges[gdf_edges.highway=="tertiary"].plot(ax=ax, color="blue", linewidth=0.5
 gdf_edges[gdf_edges.highway=="secondary"].plot(ax=ax, color="green", linewidth=0.5)
 gdf_edges[gdf_edges.highway=="primary"].plot(ax=ax, color="yellow", linewidth=0.5)
 gdf_edges[gdf_edges.highway=="motorway"].plot(ax=ax, color="orange", linewidth=0.5)
-gdf_edges[gdf_edges.name=="Américo Vespucio Oriente"].plot(ax=ax, color="red", linewidth=5)
+gdf_edges[gdf_edges.name=="Autopista Vespucio Oriente"].plot(ax=ax, color="red", linewidth=3)
 
 # gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="tertiary"].plot(ax=ax, color="blue", linewidth=0.5)
 # gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="secondary"].plot(ax=ax, color="green", linewidth=0.5)
