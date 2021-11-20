@@ -214,9 +214,13 @@ De esta manera, se valida el equilibrio de Wardrop, donde todas las rutas mínim
 
 ## Entrega 5
 
+En el siguiente gráfico se muestran las zonas seleccionadas para el estudio, con las calles importantes dentro de estas, mostrando en naranjo las llamadas "motorway", en amarillo las "primary", en verde las "secondary", en azul las "tertiary" y en rojo donde iría la Autopista Vespucio Oriente, conocida como AVO.
+
+![AVO](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/AVO%20Entrega%204.png)
+
 ¿Cómo seleccionó las zonas a incluir?
 
-Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la Autopista Vespucio Oriente, conocida como AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
+Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
 
 ¿Cuántas zonas quedaron seleccionadas son?
 
@@ -228,4 +232,4 @@ La cantidad de viajes se asignarán según los viajes que se encuentren en la ma
 
 ¿Cuales son los pares OD que espera Ud. que generen mayor flujo en AVO?
 
-Nosotros creemos que los pares OD o los arcos que generen mayor flujo van a ser las zonas que estern cercanas a AVO pero que tengan que irse hacia zonas limítrofes de Santiago o viceversa, es decir que las que tengan que atravesar Santiago y que AVO sea el camino más recto o directo hacia su destino.
+Nosotros creemos que los pares OD o los arcos que generen mayor flujo van a ser las zonas que estern cercanas a AVO pero que tengan que irse hacia zonas limítrofes de Santiago o viceversa, es decir que las que tengan que atravesar Santiago y que AVO sea el camino más recto o directo hacia su destino. Por otro lado, también se espera que el flujo que es proveniente de la Autopista Vespucio Sur y Autopista Vespucio Norte considerando que puede que les convenga continuar por la autopista, más que ir por calles aledañas.
