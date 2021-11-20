@@ -210,3 +210,22 @@ Aquí se trabajo con la variable "tabla" la cual es donde se van incluyendo los 
 Se puede ver en la tabla que todos los errores son muy bajos, menores al 0,01%, considerando los valores entregados por la pauta del control y por esto mismo se puede decir que todos los costos de estas rutas mínimas son equivalentes.  
 
 De esta manera, se valida el equilibrio de Wardrop, donde todas las rutas mínimas tienen el mismo costo.
+
+
+## Entrega 5
+
+¿Cómo seleccionó las zonas a incluir?
+
+Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la Autopista Vespucio Oriente, conocida como AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
+
+¿Cuántas zonas quedaron seleccionadas son?
+
+En total según nuestro sistema para seleccionar las zonas, se consideran 455 zonas.
+
+¿Cuántos viajes deberá asignar?
+
+La cantidad de viajes se asignarán según los viajes que se encuentren en la matriz de Origen y Destino de Santiago entregada por la documentación del curso, considerando todos los viajes que sean entre las 455 zonas seleccionadas para este análisis.
+
+¿Cuales son los pares OD que espera Ud. que generen mayor flujo en AVO?
+
+Nosotros creemos que los pares OD o los arcos que generen mayor flujo van a ser las zonas que estern cercanas a AVO pero que tengan que irse hacia zonas limítrofes de Santiago o viceversa, es decir que las que tengan que atravesar Santiago y que AVO sea el camino más recto o directo hacia su destino.
