@@ -214,25 +214,30 @@ De esta manera, se valida el equilibrio de Wardrop, donde todas las rutas mínim
 
 ## Entrega 5
 
-En el siguiente gráfico se muestran las zonas seleccionadas para el estudio, con las calles importantes dentro de estas, mostrando en naranjo las llamadas "motorway", en amarillo las "primary", en verde las "secondary", en azul las "tertiary" y en rojo donde iría la Autopista Vespucio Oriente, conocida como AVO.
+En el siguiente gráfico se muestran las zonas seleccionadas para el estudio, con las calles importantes dentro de estas. Se puede evidenciar que en naranjo se encuentran las calles clasificadas como "motorway", en amarillo las "primary", en verde las "secondary", en azul las "tertiary" y en rojo donde iría la Autopista Vespucio Oriente, conocida como AVO.
 
 ![AVO](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%205/Avenida%20%C3%81merico%20Vespucio%20Oriente.png)
 
 ### ¿Cómo seleccionó las zonas a incluir?
 
-Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de Santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
+En pocas palabras, se realizó "un waze" que identificara si entre 2 zonas AVO era una ruta válida.  
+Explicando un poco más; a partir de las demandas entregadas por enunciado se seleccionaron todas las zonas de interés. Luego, a cada zona se le calculó el nodo más cercano al punto representativo de la zona y se procedió a analizar las rutas con los costos más "baratos" (nx.all_shortest_path). Para realizar esto, era necesario definir un "peso" para identificar las rutas menos costosas. Este peso seguía el comportamiento entregado por enunciado, para esto, se realizó una función la cual contemplaba que no había flujo (suponiendo como casos iniciales) y que las rutas de la Kennedy y Autopista Central tenían distancias más grandes de las reales, para así forzar el uso de AVO en más zonas.  
+Una vez conocidas las rutas menos costosas forzando el uso de AVO, simplemente se observaba si la ruta pasaba por AVO y si es que era así, se guardaban las zonas de origen y destino como zonas de interés.  
+Lógicamente las zonas identificadas como de interés fueron las seleccionadas.  
 
 ### ¿Cuántas zonas quedaron seleccionadas son?
 
 En total según nuestro sistema para seleccionar las zonas, se consideran 455 zonas. Estás zonas fueron escogidas con los criterios mencionados anteriormente.  
-A continuación se puede observar una imagen clara de las zonas finales de interés:
+A continuación se puede observar una imagen clara de las zonas finales de interés:  
 
-![Zonas de Interés](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%205/ZONAS%20SELECCIONADAS.png)
+![Zonas de Interés](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%205/ZONAS%20SELECCIONADAS.png)  
 
 ### ¿Cuántos viajes deberá asignar?
 
-La cantidad de viajes se asignarán según los viajes que se encuentren en la matriz de Origen y Destino de Santiago entregada por la documentación del curso, considerando todos los viajes que se dan entre las 455 zonas seleccionadas para este análisis. Sería un total de 365735 viajes aproximadamente. 
+La cantidad de viajes se asignarán según los viajes que se encuentren en la matriz de Origen y Destino de Santiago entregada por la documentación del curso, considerando todos los viajes que se dan entre las 455 zonas seleccionadas para este análisis. Sería un total de 365735 viajes aproximadamente.  
 
 ### ¿Cuales son los pares OD que espera Ud. que generen mayor flujo en AVO?
 
-Nosotros creemos que los pares OD o los arcos que generen mayor flujo van a ser las zonas que estern cercanas a AVO pero que tengan que irse hacia zonas limítrofes de Santiago o viceversa, es decir que las que tengan que atravesar Santiago y que AVO sea el camino más recto o directo hacia su destino. Consideramos que de la zona correspondiente a Maipu hacia la zona de Las Condes, o desde la zona de Huachuraba hasta la zona de Las Condes, siendo estos pares de origen y destino conectando zonas dormitorio con zonas empresariales o de oficinas.
+Nosotros creemos que los pares OD o los arcos que generen mayor flujo van a ser las zonas que esten cercanas a AVO pero que tengan que irse hacia zonas limítrofes de Santiago o viceversa, es decir que las que tengan que atravesar Santiago y que AVO sea el camino más recto o directo hacia su destino. Consideramos que de la zona correspondiente a Maipú hacia la zona de Las Condes, o desde la zona de Huachuraba hasta la zona de Las Condes, siendo estos pares de origen y destino conectando zonas dormitorio con zonas empresariales o de oficinas.  
+
+####*COMENTARIOS GENERALES: En esta entrega se presentan 3 archivos .py, el primero (p3e5_cargar) simplemente carga el mapa de santiago, agrega como "motorway" a AVO y lo guarda en versión .gpickle. Luego el segundo archivo .py (p3e5_ejecutar) realiza el algoritmo explicado en la segunda pregunta entregando además un nuevo archivo .csv con las zonas de interés con sus respectivas demandas. Por último, el archivo p3e5.py entrega toda la información pedida por enunciado, se imprime el mapa con las zonas seleccionadas en gris y mostrando las calles con sus respectivos colores, además entrega la demanda total y la cantidad de zonas encontradas en p3e5_ejecutar.*
