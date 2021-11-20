@@ -216,19 +216,22 @@ De esta manera, se valida el equilibrio de Wardrop, donde todas las rutas mínim
 
 En el siguiente gráfico se muestran las zonas seleccionadas para el estudio, con las calles importantes dentro de estas, mostrando en naranjo las llamadas "motorway", en amarillo las "primary", en verde las "secondary", en azul las "tertiary" y en rojo donde iría la Autopista Vespucio Oriente, conocida como AVO.
 
-![AVO](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%204/AVO%20Entrega%204.png)
+![AVO](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%205/Avenida%20%C3%81merico%20Vespucio%20Oriente.png)
 
 ### ¿Cómo seleccionó las zonas a incluir?
 
-Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
+Las zonas a incluir se seleccionaron según una matriz de costo con todas las zonas de Santiago y se vió que la Autopista Central y la Avenida Presidente Kennedy tenían costos muy elevados, considerando esa matriz pero con flujo igual a 0, se encontraron los caminos más cortos, o los "shortest path". Una vez con los caminos más cortos encontrados, se analizó cuales de estos pasaban por la AVO. Los que pasaban por AVO, fueron seleccionados como arcos de nuestro modelo y se consideraban las zonas donde se encontraban los nodos de dichos arcos como las zonas que eran necesarias para el análisis de este problema.
 
 ### ¿Cuántas zonas quedaron seleccionadas son?
 
-En total según nuestro sistema para seleccionar las zonas, se consideran 455 zonas.
+En total según nuestro sistema para seleccionar las zonas, se consideran 455 zonas. Estás zonas fueron escogidas con los criterios mencionados anteriormente.  
+A continuación se puede observar una imagen clara de las zonas finales de interés:
+
+![Zonas de Interés](https://github.com/RobertoVergaraC/MCOC2021-P3-Grupo08/blob/main/Entrega%205/ZONAS%20SELECCIONADAS.png)
 
 ### ¿Cuántos viajes deberá asignar?
 
-La cantidad de viajes se asignarán según los viajes que se encuentren en la matriz de Origen y Destino de Santiago entregada por la documentación del curso, considerando todos los viajes que sean entre las 455 zonas seleccionadas para este análisis. Sería un total de 365735 viajes aproximadamente. 
+La cantidad de viajes se asignarán según los viajes que se encuentren en la matriz de Origen y Destino de Santiago entregada por la documentación del curso, considerando todos los viajes que se dan entre las 455 zonas seleccionadas para este análisis. Sería un total de 365735 viajes aproximadamente. 
 
 ### ¿Cuales son los pares OD que espera Ud. que generen mayor flujo en AVO?
 
