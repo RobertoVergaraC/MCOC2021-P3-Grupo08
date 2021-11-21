@@ -184,7 +184,6 @@ Matriz_OD_target = Matriz_OD.copy()
 
 incrementos = [0.1]*9 + [0.01]*9 + [0.001]*9 + [0.0001]*10
 #print(sum(incrementos)==1)
-veces = 0
 for incremento in incrementos:
 	for key in Matriz_OD:
 
@@ -261,10 +260,6 @@ for incremento in incrementos:
 
 				Matriz_OD[key] -= incremento*demanda_objetivo
 				#print("DALE WN TODO ES POSIBLE")
-				veces+=1
-				if veces == 1:
-					veces=0
-					break
 			except:
 				#print("No es posible")
 				continue
@@ -316,7 +311,7 @@ for i, edge in enumerate(G.edges):
 	G.edges[edge]["costo"] = costo
 
 	if f!= 0:
-		contador+=f
+		contador+=1
 
 	if costo_max<costo:
 		costo_max = costo
@@ -326,7 +321,6 @@ for i, edge in enumerate(G.edges):
 print(f"flujo_max = {flujo_max}")
 print(f"costo_max = {costo_max}")
 print(f"Arcos usados = {contador}")
-print(f"Veces que entra = {veces}")
 print(f"Costo Total = {costo_total}")
 
 
