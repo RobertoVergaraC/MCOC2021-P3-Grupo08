@@ -1,0 +1,7 @@
+Cantidad de Zonas: 455
+Cantidad de Viajes: 364823.70348384295
+
+flujo_max = 10415.287068302428
+costo_max = 3054.004500000001
+Arcos usados = 17203
+Costo Total = 1871088.3822472626

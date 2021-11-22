@@ -81,6 +81,7 @@ gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="motorway"].plot(ax=ax,
 gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="primary"].plot(ax=ax, color="yellow", linewidth=0.5)
 gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="secondary"].plot(ax=ax, color="green", linewidth=0.5)
 gdf_edges_seleccionados[gdf_edges_seleccionados.highway=="tertiary"].plot(ax=ax, color="blue", linewidth=0.5)
+gdf_edges[gdf_edges.name=="Autopista Vespucio Oriente"].plot(ax=ax, color="red", linewidth=3)
 
 plt.savefig("Santiago con AVO calles y con zonas seleccionadas", dpi = 300, bbox_inches = 'tight')
 
